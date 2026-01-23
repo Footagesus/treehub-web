@@ -134,7 +134,7 @@ export function ThemeSwatch({ theme }: { theme: any }) {
                             </DialogTrigger>
                             <DialogContent className="max-w-3xl p-6 border-0 bg-transparent shadow-none">
                                 <img
-                                    src={`/windui/themes/${label}.png`}
+                                    src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/windui/themes/${label}.png`}
                                     alt={label}
                                     className="w-full h-auto rounded-lg"
                                 />
