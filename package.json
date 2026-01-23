@@ -7,7 +7,6 @@
         "dev": "next dev",
         "start": "next start",
         "postinstall": "fumadocs-mdx",
-        "export": "next export",
         "gen:icons": "node scripts/GenerateSolarIcons.js"
     },
     "dependencies": {

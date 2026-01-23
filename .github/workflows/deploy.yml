@@ -27,9 +27,7 @@ jobs:
               env:
                   NODE_ENV: production
                   NEXT_PUBLIC_BASE_PATH: /treehub-web
-              run: |
-                  npm run build
-                  npm run export
+              run: npm run build
 
             - name: Deploy to gh-pages
               uses: peaceiris/actions-gh-pages@v4
