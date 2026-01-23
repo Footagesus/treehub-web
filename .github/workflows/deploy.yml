@@ -25,7 +25,7 @@ jobs:
 
             - name: Build for GitHub Pages
               env:
-                  NEXT_PUBLIC_BASE_PATH: /WindUI-Docs
+                  NEXT_PUBLIC_BASE_PATH: /treehub-web
               run: |
                   npm run build
 
