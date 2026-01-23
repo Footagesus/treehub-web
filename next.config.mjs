@@ -2,7 +2,7 @@ import { createMDX } from "fumadocs-mdx/next";
 
 const withMDX = createMDX();
 const isGithubPages = process.env.NODE_ENV === "production";
-const repo = "WindUI-Docs";
+const repo = "treehub-web";
 
 /** @type {import('next').NextConfig} */
 const config = {
