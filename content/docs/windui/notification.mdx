@@ -1,0 +1,60 @@
+---
+title: Notification
+description: Display system notifications to users
+---
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock'
+import TypeTable from '@/components/TypeTable';
+
+
+## Notification System
+
+Notifications are temporary messages displayed to inform users about events or status changes. They automatically disappear after a set duration.
+
+<Tabs defaultValue="small">
+    <TabsList>
+        <TabsTrigger value="small">Basic</TabsTrigger>
+        <TabsTrigger value="full">Full</TabsTrigger>
+    </TabsList>
+    <TabsContent value="small">
+```luau
+WindUI:Notify({
+    Title = "Success",
+    Content = "Operation completed successfully",
+    Duration = 3
+})
+```
+    </TabsContent>
+    <TabsContent value="full">
+```luau
+WindUI:Notify({
+    Title = "Success",
+    Content = "Operation completed successfully",
+    Icon = "check-circle", -- lucide icon or "rbxassetid://". optional
+    Duration = 3, -- time in seconds. optional
+    Color = Color3.fromRGB(100, 255, 100), -- custom color. optional
+    TextColor = Color3.fromRGB(255, 255, 255), -- custom text color. optional
+})
+```
+    </TabsContent>
+</Tabs>
+
+## Notification Parameters
+
+<TypeTable
+    data={[
+        { name: "Title", type: "string", description: "Notification title", default: "Notification" },
+        { name: "Content", type: "string", description: "Notification message text", default: "nil" },
+        { name: "Icon", type: "string?", description: "Icon identifier (lucide icon or rbxassetid://)", default: "nil" },
+        { name: "Duration", type: "number?", description: "Display duration in seconds", default: "3" },
+        { name: "Color", type: "Color3?", description: "Custom notification background color", default: "nil" },
+        { name: "TextColor", type: "Color3?", description: "Custom notification text color", default: "nil" },
+    ]}
+/>
+
+## Related Documentation
+
+- [Dialog](./dialog) - Modal confirmation dialogs
+- [Popup](./popup) - Popup windows
+- [Window](./window) - Main window container

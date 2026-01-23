@@ -1,0 +1,157 @@
+---
+title: Themes
+description: Create Themes or use existing ones
+---
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
+import { ThemeSwatch } from "@/components/ThemeSwatch";
+import { getThemes } from "@/lib/windui/getThemes";
+import { Badge } from "@/components/ui/badge";
+
+![Themes](/windui/banners/Themes.png)
+
+## Create Theme
+
+You can create theme with `WindUI:AddTheme()`
+
+<Tabs defaultValue="default">
+    <TabsList>
+        <TabsTrigger value="default">Minimalistic</TabsTrigger>
+        <TabsTrigger value="advanced">Advanced</TabsTrigger>
+    </TabsList>
+    <TabsContent value="default">
+        <DynamicCodeBlock lang="luau" code={`WindUI:AddTheme({
+    Name = "Dark", -- theme name
+    
+    Accent = Color3.fromHex("#18181b"),
+    Background = Color3.fromHex("#101010"),
+    Outline = Color3.fromHex("#FFFFFF"),
+    Text = Color3.fromHex("#FFFFFF"),
+    Placeholder = Color3.fromHex("#7a7a7a"),
+    Button = Color3.fromHex("#52525b"),
+    Icon = Color3.fromHex("#a1a1aa"),
+})`} className="m-0" />
+    </TabsContent>
+    <TabsContent value="advanced">
+        <DynamicCodeBlock lang="luau" code={`WindUI:AddTheme({
+    Name = "Dark", -- theme name
+    
+    
+    -- More Soon!
+    -- !! All keys are optional
+
+    Accent = Color3.fromHex("#18181b"),
+    Background = Color3.fromHex("#101010"),
+    BackgroundTransparency = 0,
+    Outline = Color3.fromHex("#FFFFFF"),
+    Text = Color3.fromHex("#FFFFFF"),
+    Placeholder = Color3.fromHex("#7a7a7a"),
+    Button = Color3.fromHex("#52525b"),
+    Icon = Color3.fromHex("#a1a1aa"),
+
+    Primary = Color3.fromHex("#0091FF"),
+
+    Hover = Color3.fromHex("#FFFFFF"),
+    BackgroundTransparency = 0,
+
+    WindowBackground = Color3.fromHex("101010"), -- Background
+    WindowShadow = Color3.fromHex("000000"),
+
+    DialogBackground = Color3.fromHex("#101010"), -- Background
+    DialogBackgroundTransparency = 0, -- BackgroundTransparency
+    DialogTitle = Color3.fromHex("#FFFFFF"), -- Text
+    DialogContent = Color3.fromHex("#FFFFFF"), -- Text
+    DialogIcon = Color3.fromHex("#a1a1aa"), -- Icon
+
+    WindowTopbarButtonIcon = Color3.fromHex("a1a1aa"), -- Icon
+    WindowTopbarTitle = Color3.fromHex("FFFFFF"), -- Text
+    WindowTopbarAuthor = Color3.fromHex("FFFFFF"), -- Text
+    WindowTopbarIcon = Color3.fromHex("FFFFFF"), -- Text
+
+    TabBackground = Color3.fromHex("#FFFFFF"), -- Text
+    TabTitle = Color3.fromHex("#FFFFFF"), -- Text
+    TabIcon = Color3.fromHex("a1a1aa"), -- Icon
+
+    ElementBackground = Color3.fromHex("#FFFFFF"), -- Text
+    ElementTitle = Color3.fromHex("#FFFFFF"), -- Text
+    ElementDesc = Color3.fromHex("#FFFFFF"), -- Text
+    ElementIcon = Color3.fromHex("#a1a1aa"), -- Icon
+
+    PopupBackground = Color3.fromHex("#101010"), -- Background
+    PopupBackgroundTransparency = 0, -- BackgroundTransparency
+    PopupTitle = Color3.fromHex("#FFFFFF"), -- Text
+    PopupContent = Color3.fromHex("#FFFFFF"), -- Text
+    PopupIcon = Color3.fromHex("#a1a1aa"), -- Icon
+
+    DialogBackground = Color3.fromHex("#101010"), -- Background
+    DialogBackgroundTransparency = 0, -- Transparency
+    DialogTitle = Color3.fromHex("#FFFFFF"), -- Text
+    DialogContent = Color3.fromHex("#FFFFFF"), -- Text
+    DialogIcon = Color3.fromHex("#a1a1aa"), -- Icon
+
+    Toggle = Color3.fromHex("#52525b"), -- Button
+    ToggleBar = Color3.fromHex("#FFFFFF"), -- White
+
+    Checkbox = Color3.fromHex("#52525b"), -- Button
+    CheckboxIcon = Color3.fromHex("#FFFFFF"), -- White
+    CheckboxBorder = Color3.fromHex("FFFFFF"),
+    CheckboxBorderTransparency = .75,
+
+    Slider = Color3.fromHex("#52525b"), -- Button
+    SliderThumb = Color3.fromHex("#FFFFFF"), -- White
+    SliderIconFrom = Color3.fromHex("#908F95"),
+    SliderIconTo = Color3.fromHex("#908F95"),
+
+    Tooltip = Color3.fromHex("4C4C4C"),
+    TooltipText = Color3.fromHex("#ffffff"),
+    TooltipSecondary = Color3.fromHex("#0091FF"),
+    TooltipSecondaryText = Color3.fromHex("#FFFFFF"),
+
+    SectionExpandIcon = Color3.fromHex("FFFFFF"),
+    SectionExpandIconTransparency = .4,
+    SectionBox = Color3.fromHex("FFFFFF"),
+    SectionBoxTransparency = .95,
+    SectionBoxBorder = Color3.fromHex("FFFFFF"),
+    SectionBoxBorderTransparency = .75,
+    SectionBoxBackground = Color3.fromHex("FFFFFF"),
+    SectionBoxBackgroundTransparency = .95,
+
+    SearchBarBorder = Color3.fromHex("FFFFFF"),
+    SearchBarBorderTransparency = .75,
+
+    Notification = Color3.fromHex("101010"),
+    NotificationTitle = Color3.fromHex("#FFFFFF"),
+    NotificationTitleTransparency = 0,
+    NotificationContent = Color3.fromHex("FFFFFF"),
+    NotificationContentTransparency = .4,
+    NotificationDuration = Color3.fromHex("FFFFFF"),
+    NotificationDurationTransparency = .95,
+    NotificationBorder = Color3.fromHex("FFFFFF"),
+    NotificationBorderTransparency = .75,
+
+    DropdownTabBorder = Color3.fromHex("FFFFFF"),
+
+    TabBorder = Color3.fromHex("FFFFFF"),
+
+})`} className="m-0" />
+
+</TabsContent>
+
+</Tabs>
+
+## Set Theme
+
+```luau
+WindUI:SetTheme("Dark")
+```
+
+## All Themes <Badge>Clickable</Badge>
+
+<div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+    {Object.entries(await getThemes()).map(([key, theme]) => (
+        <div key={key} className="flex items-center gap-3">
+            <ThemeSwatch theme={theme} />
+        </div>
+    ))}
+</div>

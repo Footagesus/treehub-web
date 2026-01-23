@@ -1,0 +1,82 @@
+---
+title: Icons
+description: Available icon references for WindUI elements
+---
+
+import GithubInfo from "../../../components/GithubInfo.tsx";
+
+## Icon System
+
+WindUI supports icons from multiple sources:
+
+1. **Built-In Icons** (recommended)
+2. **Roblox Asset IDs** - **Use** rbxassetid:// format
+3. **Image URLs** - External image RAW links
+
+## Built-In Icons
+
+WindUI uses [Lucide](https://lucide.dev) icons by default. You can reference any Lucide icon by its name.
+
+### All Available Icon Sets
+
+-   [Lucide Icons](https://github.com/lucide-icons/lucide)
+-   [Craft Icons](https://www.figma.com/community/file/1415718327120418204)
+-   [Geist Icons](https://vercel.com/geist/icons)
+-   [Solar Icons](https://icones.js.org/collection/solar)
+-   [SF Symbols](https://sf-symbols-one.vercel.app/)
+
+### Icons source
+
+<GithubInfo owner="Footagesus" repo="Icons" />
+
+## Using Icons
+
+### Built-In Icons
+
+Simply use the icon name:
+
+#### Lucide:
+```luau
+Tab:Button({
+    Title = "Save",
+    Icon = "save" -- default Lucide icon
+})
+```
+#### Solar:
+```luau
+Tab:Button({
+    Title = "Edit",
+    Icon = "solar:pen-bold" -- Solar icon
+})
+```
+
+and others
+
+
+### Roblox Asset IDs
+
+Use `rbxassetid://` format:
+
+```luau
+Tab:Button({
+    Icon = "rbxassetid://123456789",
+    IconThemed = true -- optional, applies theme colors
+})
+```
+
+### Image URLs
+
+Provide direct image URLs:
+
+```luau
+Tab:Button({
+    Icon = "https://example.com/my-icon.png"
+})
+```
+
+## Related Documentation
+
+-   [Button](./button) - Icons in buttons
+-   [Tab](./tab) - Icons in tabs
+-   [Section](./sections) - Icons in sections
+-   [Notification](./notification) - Icons in notifications

@@ -1,0 +1,76 @@
+---
+title: Code
+description: Display code blocks with syntax highlighting
+---
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock'
+import TypeTable from '@/components/TypeTable';
+
+
+## Code Element
+
+Code elements display formatted code with syntax highlighting and copy functionality.
+
+<Tabs defaultValue="small">
+    <TabsList>
+        <TabsTrigger value="small">Basic</TabsTrigger>
+        <TabsTrigger value="full">Full</TabsTrigger>
+    </TabsList>
+    <TabsContent value="small">
+```luau
+Tab:Code({
+    Title = "Example Code",
+    Code = "print('Hello World')"
+})
+```
+    </TabsContent>
+    <TabsContent value="full">
+```luau
+Tab:Code({
+    Title = "Example Code",
+    Code = "local x = 10\\nprint(x)",
+    OnCopy = function()
+        print("Code copied to clipboard")
+    end
+})
+```
+    </TabsContent>
+</Tabs>
+
+## Code Parameters
+
+<TypeTable
+    data={[
+        { name: "Title", type: "string?", description: "Code block title", default: "nil" },
+        { name: "Code", type: "string", description: "Code content to display", default: "" },
+        { name: "OnCopy", type: "function?", description: "Callback when code is copied", default: "nil" },
+    ]}
+/>
+
+## Code Functions
+
+<TypeTable 
+    type={{
+        ':SetCode': {
+            type: 'function',
+            description: 'Programmatically set the code in the codebox.',
+            args: {
+                Code: {
+                    type: 'string',
+                    description: 'New code text.',
+                }
+            }
+        },
+        ':Destroy': {
+            type: 'function',
+            description: 'Remove the codebox element.',
+            args: {}
+        },
+    }}
+/>
+
+## Related Documentation
+
+- [Tab](./tab) - Tab container
+- [Paragraph](./paragraph) - Text display element

@@ -1,0 +1,233 @@
+---
+title: Dropdown
+description: Create dropdown select menus in WindUI
+---
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock'
+import TypeTable from '@/components/TypeTable';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { TriangleAlert } from 'lucide-react';
+
+## Dropdown Element
+
+Dropdowns allow users to select from a list of predefined Values. They're useful for presenting multiple choices in a compact format.
+
+<Tabs defaultValue="small">
+    <TabsList>
+        <TabsTrigger value="small">Basic</TabsTrigger>
+        <TabsTrigger value="full">Full</TabsTrigger>
+        <TabsTrigger value="advanced">Advanced</TabsTrigger>
+    </TabsList>
+
+    <TabsContent value="small">
+```luau
+local Dropdown = Tab:Dropdown({
+    Title = "Select Value",
+    Values = {
+        "Option 1",
+        "Option 2",
+        "Option 3"
+    },
+    Callback = function(selected)
+        print("Selected:", selected)
+    end
+})
+```
+    </TabsContent>
+
+    <TabsContent value="full">
+```luau
+local Dropdown = Tab:Dropdown({
+    Title = "Select Option",
+    Desc = "Dropdown description",
+    Values = {
+        "Option 1",
+        "Option 2",
+        "Option 3",
+        "Option 4"
+    },
+    Value = "Option 1",
+    Multi = false,
+    Locked = false,
+    Flag = "my_dropdown",
+    Callback = function(selected)
+        print("Selected:", selected)
+    end
+})
+```
+    </TabsContent>
+
+    <TabsContent value="advanced">
+```luau
+local AdvancedDropdown = Tab:Dropdown({
+    Title = "Advanced Values",
+    Values = {
+        {
+            Title = "New file",
+            Desc = "Create a new file",
+            Icon = "file-plus",
+            Callback = function()
+                print("Clicked 'New file'")
+            end
+        },
+        {
+            Title = "Copy link",
+            Desc = "Copy the file link",
+            Icon = "copy",
+            Callback = function()
+                print("Clicked 'Copy link'")
+            end
+        },
+        {
+            Title = "Edit file",
+            Desc = "Allows you to edit the file",
+            Icon = "file-pen",
+            Callback = function()
+                print("Clicked 'Edit file'")
+            end
+        },
+        {
+            Type = "Divider",
+        },
+        {
+            Title = "Delete file",
+            Desc = "Permanently delete the file",
+            Icon = "trash",
+            Callback = function()
+                print("Clicked 'Delete file'")
+            end
+        },
+    }
+})
+```
+    </TabsContent>
+</Tabs>
+
+## Dropdown Parameters
+
+<TypeTable
+    data={[
+        { name: "Title", type: "string", description: "Dropdown title text", default: "Dropdown" },
+        { name: "Desc", type: "string?", description: "Description shown under the title", default: "nil" },
+        { name: "Values", type: "table", description: "List of dropdown values or advanced value objects", default: "{}" },
+        { name: "Value", type: "string?", description: "Default selected value", default: "nil" },
+        { name: "AllowNone", type: "boolean?", description: "Allow empty selection", default: "false" },
+        { name: "SearchBarEnabled", type: "boolean?", description: "Enable search bar inside dropdown", default: "false" },
+        { name: "Multi", type: "boolean?", description: "Allow multiple values to be selected", default: "false" },
+        { name: "Locked", type: "boolean?", description: "Disable dropdown interaction", default: "false" },
+        { name: "Flag", type: "string?", description: "Flag used for config saving", default: "nil" },
+        { name: "Callback", type: "function?", description: "Called when selection changes", default: "nil" },
+    ]}
+/>
+
+## Dropdown Functions
+
+<TypeTable 
+    type={{
+        ':SetTitle': {
+            type: 'function',
+            description: 'Change dropdown title dynamically.',
+            args: {
+                Title: {
+                    type: 'string',
+                    description: 'New dropdown title.',
+                }
+            }
+        },
+        ':SetDesc': {
+            type: 'function',
+            description: 'Update dropdown description.',
+            args: {
+                Description: {
+                    type: 'string',
+                    description: 'New dropdown description.',
+                }
+            }
+        },
+        ':Select': {
+            type: 'function',
+            description: 'Select one or multiple values programmatically.',
+            args: {
+                Value: {
+                    type: 'string | table',
+                    description: 'Single value or table of values for multi-select.',
+                }
+            }
+        },
+        ':Lock': {
+            type: 'function',
+            description: 'Disable dropdown interaction.',
+            args: {}
+        },
+        ':Unlock': {
+            type: 'function',
+            description: 'Re-enable dropdown interaction.',
+            args: {}
+        },
+        ':Highlight': {
+            type: 'function',
+            description: 'Visually highlight the dropdown.',
+            args: {}
+        },
+        ':Destroy': {
+            type: 'function',
+            description: 'Remove the dropdown from the tab.',
+            args: {}
+        },
+    }}
+/>
+
+## Dropdown Variants
+
+### Simple Dropdown
+
+```luau
+Tab:Dropdown({
+    Title = "Choose Theme",
+    Values = {
+        "Light",
+        "Dark",
+        "Auto"
+    },
+    Value = "Dark",
+    Callback = function(selected)
+        print("Theme:", selected)
+    end
+})
+```
+
+### Multi-Select Dropdown
+
+```luau
+Tab:Dropdown({
+    Title = "Select Features",
+    Desc = "Choose multiple features to enable",
+    Values = {
+        "Feature A",
+        "Feature B",
+        "Feature C",
+        "Feature D"
+    },
+    Multi = true,
+    AllowNone = true,
+    Callback = function(selected)
+        print("Selected features:", selected)
+    end
+})
+```
+
+<Alert className="bg-yellow-300/30 dark:bg-yellow-950/80 text-yellow-700 dark:text-yellow-200/90 border-0">
+    <TriangleAlert />
+    <AlertTitle>IMPORTANT</AlertTitle>
+    <AlertDescription className="[&_p]:m-0">
+        <p>Dropdown does not support duplicate values. Each entry in the Values list must be unique.</p>
+    </AlertDescription>
+</Alert>
+
+
+## Related Documentation
+
+- [Tab](./tab)
+- [Input](./input)
+- [Paragraph](./paragraph)

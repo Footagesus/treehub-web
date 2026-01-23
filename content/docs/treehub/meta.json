@@ -1,0 +1,6 @@
+{
+    "title": "Tree Hub (wip)",
+    "description": "Tree Hub Documentation",
+    "root": true,
+    "pages": ["---Main---", "index"]
+}

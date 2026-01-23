@@ -1,0 +1,189 @@
+---
+title: Tab
+description: Create and configure tabs in WindUI windows
+---
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock'
+import TypeTable from '@/components/TypeTable';
+
+![Tab](/windui/banners/Tab.png)
+
+## Tab Configuration
+
+Tabs are used to organize content within a window into multiple sections. Each tab acts as a container for elements.
+
+<Tabs defaultValue="small">
+    <TabsList>
+        <TabsTrigger value="small">Basic</TabsTrigger>
+        <TabsTrigger value="full">Full</TabsTrigger>
+    </TabsList>
+    <TabsContent value="small">
+```luau
+local Tab = Window:Tab({
+    Title = "Tab Title",
+    Icon = "bird", -- optional
+})
+```
+    </TabsContent>
+    <TabsContent value="full">
+```luau
+local Tab = Window:Tab({
+    Title = "My Tab",
+    Desc = "Tab description", -- optional
+    Icon = "bird", -- lucide icon or "rbxassetid://" or URL. optional
+    IconColor = Color3.fromRGB(255, 100, 100), -- custom icon color. optional
+    IconShape = "Square", -- "Square" or "Circle". optional
+    IconThemed = true, -- use theme colors. optional
+    Locked = false, -- disable tab interaction. optional
+    ShowTabTitle = false, -- show title inside tab. optional
+    Border = true, -- add border around tab. optional
+    Before = FirstTab, -- place this tab before another tab. optional
+    After = LastTab, -- place this tab after another tab. optional
+})
+```
+    </TabsContent>
+</Tabs>
+
+## Tab Parameters
+
+<TypeTable
+    data={[
+        { name: "Title", type: "string", description: "Tab title displayed in sidebar", default: "Tab" },
+        { name: "Desc", type: "string?", description: "Tab description (tooltip)", default: "nil" },
+        { name: "Icon", type: "string?", description: "Icon identifier (lucide icon, rbxassetid://, or URL)", default: "nil" },
+        { name: "IconColor", type: "Color3?", description: "Custom icon color", default: "nil" },
+        { name: "IconShape", type: "string?", description: "Icon shape: 'Square' or 'Circle'", default: "nil" },
+        { name: "IconThemed", type: "boolean?", description: "Use theme colors for icon", default: "false" },
+        { name: "Locked", type: "boolean?", description: "Prevent tab interaction when true", default: "false" },
+        { name: "ShowTabTitle", type: "boolean?", description: "Display tab title in content area", default: "false" },
+        { name: "Border", type: "boolean?", description: "Add visual border around tab", default: "false" },
+   ]}
+/>
+
+## Tab Methods
+
+### Select Tab
+
+Select and show the tab
+
+<DynamicCodeBlock className="m-0" lang="luau" code={`Tab:Select()`} />
+
+### Set Title
+
+Change tab title dynamically
+
+<DynamicCodeBlock className="m-0" lang="luau" code={`Tab:SetTitle("New Title")`} />
+
+### Set Description
+
+Update tab description/tooltip
+
+<DynamicCodeBlock className="m-0" lang="luau" code={`Tab:SetDesc("New Description")`} />
+
+### Lock Tab
+
+Disable interaction with the tab
+
+<DynamicCodeBlock className="m-0" lang="luau" code={`Tab:Lock()`} />
+
+### Unlock Tab
+
+Re-enable tab interaction
+
+<DynamicCodeBlock className="m-0" lang="luau" code={`Tab:Unlock()`} />
+
+### Scroll To Element
+
+Automatically scroll to a specific element in the tab
+
+<DynamicCodeBlock className="m-0" lang="luau" code={`Tab:ScrollToTheElement(1)`} />
+
+### Select Tab
+
+Selects the tab
+
+<DynamicCodeBlock className="m-0" lang="luau" code={`Tab:Select()`} />
+
+## Tab Elements
+
+
+<Tabs defaultValue="elements">
+    <TabsList>
+        <TabsTrigger value="elements">Add Elements</TabsTrigger>
+        <TabsTrigger value="section">Tab Section</TabsTrigger>
+        <TabsTrigger value="group">Tab Group</TabsTrigger>
+    </TabsList>
+    <TabsContent value="elements">
+```luau
+local Tab = Window:Tab({ Title = "Elements" })
+
+-- Add various elements
+Tab:Button({
+    Title = "Click Me",
+    Callback = function()
+        print("Button clicked")
+    end
+})
+
+Tab:Toggle({
+    Title = "Enable Feature",
+    Callback = function(state)
+        print("Toggle:", state)
+    end
+})
+
+Tab:Slider({
+    Title = "Volume",
+    Value = { Min = 0, Max = 100, Default = 50 },
+    Callback = function(value)
+        print("Volume:", value)
+    end
+})
+
+Tab:Input({
+    Title = "Username",
+    Callback = function(value)
+        print("Username:", value)
+    end
+})
+```
+    </TabsContent>
+    <TabsContent value="section">
+```luau
+local Tab = Window:Tab({ Title = "With Sections" })
+
+-- Create sections to organize elements
+local Section1 = Tab:Section({
+    Title = "Basic Settings",
+    Icon = "settings",
+    Opened = true,
+})
+
+Section1:Button({ Title = "Button in Section" })
+Section1:Toggle({ Title = "Toggle in Section" })
+
+local Section2 = Tab:Section({
+    Title = "Advanced Settings",
+    Opened = false,
+})
+
+Section2:Slider({ Title = "Advanced Slider" })`} />
+    </TabsContent>
+    <TabsContent value="group">
+        <DynamicCodeBlock className="m-0" lang="luau" code={`local Tab = Window:Tab({ Title = "With Groups" })
+
+-- Create groups for horizontal layout
+local Group1 = Tab:Group({})
+
+Group1:Button({ Title = "Button 1" })
+Group1:Button({ Title = "Button 2" })
+Group1:Button({ Title = "Button 3" })
+```
+    </TabsContent>
+</Tabs>
+## Related Documentation
+
+- [Window](./window) - Create and configure windows
+- [Section](./sections) - Organize content into sections
+- [Group](./group) - Horizontal element layout
