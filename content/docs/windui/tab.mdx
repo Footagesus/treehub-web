@@ -65,43 +65,57 @@ local Tab = Window:Tab({
 
 Select and show the tab
 
-<DynamicCodeBlock className="m-0" lang="luau" code={`Tab:Select()`} />
+```luau
+Tab:Select()
+```
 
 ### Set Title
 
 Change tab title dynamically
 
-<DynamicCodeBlock className="m-0" lang="luau" code={`Tab:SetTitle("New Title")`} />
+```luau
+Tab:SetTitle("New Title")
+```
 
 ### Set Description
 
 Update tab description/tooltip
 
-<DynamicCodeBlock className="m-0" lang="luau" code={`Tab:SetDesc("New Description")`} />
+```luau
+Tab:SetDesc("New Description")
+```
 
 ### Lock Tab
 
 Disable interaction with the tab
 
-<DynamicCodeBlock className="m-0" lang="luau" code={`Tab:Lock()`} />
+```luau
+Tab:Lock()
+```
 
 ### Unlock Tab
 
 Re-enable tab interaction
 
-<DynamicCodeBlock className="m-0" lang="luau" code={`Tab:Unlock()`} />
+```luau
+Tab:Unlock()
+```
 
 ### Scroll To Element
 
 Automatically scroll to a specific element in the tab
 
-<DynamicCodeBlock className="m-0" lang="luau" code={`Tab:ScrollToTheElement(1)`} />
+```luau
+Tab:ScrollToTheElement(1)
+```
 
 ### Select Tab
 
 Selects the tab
 
-<DynamicCodeBlock className="m-0" lang="luau" code={`Tab:Select()`} />
+```luau
+Tab:Select()
+```
 
 ## Tab Elements
 
@@ -166,10 +180,12 @@ local Section2 = Tab:Section({
     Opened = false,
 })
 
-Section2:Slider({ Title = "Advanced Slider" })`} />
+Section2:Slider({ Title = "Advanced Slider" })
+```
     </TabsContent>
     <TabsContent value="group">
-        <DynamicCodeBlock className="m-0" lang="luau" code={`local Tab = Window:Tab({ Title = "With Groups" })
+```luau
+local Tab = Window:Tab({ Title = "With Groups" })
 
 -- Create groups for horizontal layout
 local Group1 = Tab:Group({})
