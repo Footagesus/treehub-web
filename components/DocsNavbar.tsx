@@ -21,6 +21,8 @@ export default function DocsNavbar() {
     const router = useRouter();
     const tree = source.pageTree;
 
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
     const projects = useMemo(() => {
         const result: Array<{
             key: string;
@@ -36,11 +38,11 @@ export default function DocsNavbar() {
                 );
                 const url =
                     (firstPage && firstPage.type === "page" && firstPage.url) ||
-                    `/docs/${typeof node.name === 'string' ? node.name.toLowerCase() : ''}`;
+                    `${basePath}/docs/${typeof node.name === "string" ? node.name.toLowerCase() : ""}`;
 
                 result.push({
                     key: url,
-                    title: String(node.name || ''),
+                    title: String(node.name || ""),
                     url: url,
                     node: node,
                 });
@@ -160,7 +162,7 @@ export default function DocsNavbar() {
             <nav className="flex items-center justify-between px-4 h-14 dark:bg-popover bg-neutral-100 fixed top-0 w-full z-999">
                 <div className="flex flex-row items-center gap-1">
                     <Link
-                        href="/"
+                        href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/`}
                         className="flex flex-row items-center gap-1 opacity-90 hover:opacity-100"
                     >
                         <Logo className="h-4 w-[18.668px]" />

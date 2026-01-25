@@ -19,6 +19,8 @@ export default function DocsSidebar() {
     const [openPopover, setOpenPopover] = useState(false);
     const tree = source.pageTree;
 
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
     const projects = useMemo(() => {
         const result: Array<{
             key: string;
@@ -35,11 +37,11 @@ export default function DocsSidebar() {
                 );
                 const url =
                     (firstPage && firstPage.type === "page" && firstPage.url) ||
-                    `/docs/${typeof node.name === 'string' ? node.name.toLowerCase() : ''}`;
+                    `${basePath}/docs/${typeof node.name === "string" ? node.name.toLowerCase() : ""}`;
 
                 result.push({
                     key: url,
-                    title: String(node.name || ''),
+                    title: String(node.name || ""),
                     url: url,
                     node: node,
                 });
