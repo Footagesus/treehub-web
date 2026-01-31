@@ -131,7 +131,7 @@ export default function DocsNavbar() {
 
             if (child.type === "page") {
                 return (
-                    <a
+                    <Link
                         key={child.url}
                         href={child.url}
                         onClick={() => setIsOpen(false)}
@@ -149,7 +149,7 @@ export default function DocsNavbar() {
                         }}
                     >
                         {child.name}
-                    </a>
+                    </Link>
                 );
             }
 
