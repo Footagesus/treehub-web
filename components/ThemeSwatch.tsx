@@ -102,7 +102,7 @@ export function ThemeSwatch({ theme }: { theme: any }) {
     return (
         <span
             className="
-                        relative flex flex-row items-start justify-between
+                        relative flex flex-row max-md:flex-col items-start justify-between
                         w-full h-auto rounded-[20px]
                         dark:shadow-[inset_0_0_0_0.75px_rgba(255,255,255,0.12)]
                         shadow-[inset_0_0_0_0.75px_rgba(0,0,0,0.12)]
@@ -116,7 +116,7 @@ export function ThemeSwatch({ theme }: { theme: any }) {
             <div className="text-sm font-medium z-99 flex flex-col  items-start justify-start h-full">
                 <span className="text-2xl font-semibold p-6 pb-2">{label}</span>
 
-                <div className="grid grid-cols-2 gap-2 p-4">
+                <div className="grid grid-cols-2 gap-2 p-4 max-md:hidden">
                     {Object.entries(theme)
                         .filter(([key, value]) => {
                             if (key === "Name") return false;
