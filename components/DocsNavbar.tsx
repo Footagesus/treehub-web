@@ -168,7 +168,7 @@ export default function DocsNavbar() {
             <nav className="flex items-center justify-between px-4 h-14 dark:bg-popover bg-neutral-100 fixed top-0 w-full z-999">
                 <div className="flex flex-row items-center gap-1">
                     <Link
-                        href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/`}
+                        href={`/`}
                         className="flex flex-row items-center gap-1 opacity-90 hover:opacity-100"
                     >
                         <Logo className="h-5! text-brand" />
