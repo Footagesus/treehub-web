@@ -278,11 +278,7 @@ export default function HomePage() {
                     </p>
                     <Button
                         className="rounded-full bg-brand! text-white! font-medium tracking-tight"
-                        onClick={() =>
-                            router.push(
-                                `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/docs/`,
-                            )
-                        }
+                        onClick={() => router.push(`/docs/`)}
                     >
                         Documentation
                     </Button>
