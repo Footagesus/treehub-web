@@ -11,8 +11,8 @@ export function Body({ children }: { children: ReactNode }) {
     return (
         <body
             className={clsx(
-                "flex flex-col min-h-svh bg-neutral-100",
-                isDocs ? "dark:bg-neutral-900" : "dark:bg-neutral-950"
+                "flex flex-col min-h-svh bg-background selection:bg-brand selection:text-white max-lg:select-none ",
+                isDocs ? "dark:bg-neutral-900" : "",
             )}
         >
             {children}

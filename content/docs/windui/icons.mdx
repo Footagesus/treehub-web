@@ -5,6 +5,16 @@ description: Available icon references for WindUI elements
 
 import GithubInfo from "../../../components/GithubInfo.tsx";
 
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table"
+
 ## Icon System
 
 WindUI supports icons from multiple sources:
@@ -19,13 +29,44 @@ WindUI uses [Lucide](https://lucide.dev) icons by default. You can reference any
 
 ### All Available Icon Sets
 
--   [Lucide Icons](https://github.com/lucide-icons/lucide)
--   [Craft Icons](https://www.figma.com/community/file/1415718327120418204)
--   [Geist Icons](https://vercel.com/geist/icons)
--   [Solar Icons](https://icones.js.org/collection/solar)
--   [SF Symbols](https://sf-symbols.pages.dev/)
+<Table className="w-140">
+    <TableCaption>All Icon Sets</TableCaption>
+    <TableHeader>
+        <TableRow>
+            <TableHead>Name</TableHead>
+            <TableHead>Prefix</TableHead>
+        </TableRow>
+    </TableHeader>
+    <TableBody>
+        <TableRow>
+            <TableCell>[Lucide Icons](https://github.com/lucide-icons/lucide)</TableCell>
+            <TableCell>`lucide:`</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>[Craft Icons](https://www.figma.com/community/file/1415718327120418204)</TableCell>
+            <TableCell>`craft:`</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>[Geist Icons](https://vercel.com/geist/icons)</TableCell>
+            <TableCell>`geist:`</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>[Solar Icons](https://icones.js.org/collection/solar)</TableCell>
+            <TableCell>`solar:`</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>[SF Symbols](https://sf-symbols.pages.dev/)</TableCell>
+            <TableCell>`sfsymbols:`</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>[Gravity UI Icons](https://gravity-ui.com/ru/icons)</TableCell>
+            <TableCell>`gravity:`</TableCell>
+        </TableRow>
+    </TableBody>
+</Table>
 
-### Icons source
+
+### All Icons source
 
 <GithubInfo owner="Footagesus" repo="Icons" />
 
@@ -51,7 +92,6 @@ Tab:Button({
 ```
 
 and others
-
 
 ### Roblox Asset IDs
 

@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import { StarBold, StarOutline } from "@/app/SolarIcons";
 import { GitFork, SquareArrowOutUpRight, Star } from "lucide-react";
 import { LuaIcon } from "@/public/lua";
+import TopbarButton from "./TopbarButton";
 
 interface GithubRepo {
     name: string;
@@ -60,23 +61,24 @@ export default function GithubInfo({
     if (!repoData) return <div>No repository data</div>;
 
     return (
-        <a
-            className="p-2 dark:bg-white/5 bg-white border border-black/10 dark:border-0 rounded-[20px] flex flex-col no-underline"
-            href={repoData.url}
+        <TopbarButton
+            className="p-2 dark:bg-white/8 bg-white border border-black/10 dark:border-0 rounded-3xl flex! flex-col justify-start items-start w-full!"
+            onClick={() => window.open(repoData.url, "_blank")}
+            isScrolled={true}
+            scaleOnHold={1.04}
+            stretchOnDrag={false}
         >
-            <span className="text-xs font-normal opacity-50 p-2 flex flex-row justify-between items-center">
+            <span className="text-xs font-normal opacity-50 p-2 flex flex-row justify-between items-center w-full">
                 {repoData.url}
                 <SquareArrowOutUpRight className="h-3" />
             </span>
-            <h2 className="text-2xl font-bold mb-1 mt-0 px-2">
-                {repoData.name}
-            </h2>
+            <h2 className="text-3xl font-bold px-2 -my-2!">{repoData.name}</h2>
             {repoData.description && (
-                <p className="mb-4 px-2 opacity-80 font-normal text-sm">
+                <p className="my-0! px-2 opacity-80 font-normal text-sm">
                     {repoData.description}
                 </p>
             )}
-            <div className="flex gap-2 text-sm">
+            <div className="flex gap-2 text-sm p-1">
                 <span className="flex flex-row items-center text-sm font-medium w-auto gap-1 dark:bg-white/10 bg-white border border-black/10 dark:border-0 rounded-full px-2 py-1">
                     <Star className="h-4" /> {repoData.stars} stars
                 </span>
@@ -92,6 +94,6 @@ export default function GithubInfo({
                     </span>
                 )}
             </div>
-        </a>
+        </TopbarButton>
     );
 }

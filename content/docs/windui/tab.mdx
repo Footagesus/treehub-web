@@ -38,6 +38,11 @@ local Tab = Window:Tab({
     Locked = false, -- disable tab interaction. optional
     ShowTabTitle = false, -- show title inside tab. optional
     Border = true, -- add border around tab. optional
+    CustomEmptyPage = { -- custom empty page when no elements are added to the tab. optional
+		Icon = "lucide:smile", -- icon for empty page. optional
+		Title = "This is a cool empty tab", -- title for empty page. optional
+		Desc = "I like it. its so great tab with cool 'custom empty page'", -- description for empty page. optional
+	},
 })
 ```
     </TabsContent>
@@ -56,6 +61,33 @@ local Tab = Window:Tab({
         { name: "Locked", type: "boolean?", description: "Prevent tab interaction when true", default: "false" },
         { name: "ShowTabTitle", type: "boolean?", description: "Display tab title in content area", default: "false" },
         { name: "Border", type: "boolean?", description: "Add visual border around tab", default: "false" },
+        { name: "TabTitleAlign", type: "string?", description: "Align tab title. Variants: 'Left', 'Center', 'Right'", default: "Left" },
+        { name: "CustomEmptyPage", type: "table?", description: (
+            <>
+                <h4>Custom empty page for tab</h4>
+
+                <p>Example:</p> 
+                <DynamicCodeBlock
+                    code={`CustomEmptyPage = {
+    Icon = "lucide:smile",
+    Title = "This is a cool empty tab",
+    Desc = "I like it. its so great tab with cool 'custom empty page'",
+}`}
+                    lang="luau"
+                />
+            </>
+        ), default: "{ Icon = 'lucide:frown', IconSize = 48, Title = 'This tab is Empty', Desc = nil }" },
+   ]}
+/>
+
+
+## `CustomEmptyPage` Parameters
+<TypeTable
+    data={[
+        { name: "Icon", type: "string?", description: "Icon for empty page (lucide icon, rbxassetid://, or URL)", default: "lucide:frown" },
+        { name: "IconSize", type: "number?", description: "Size of the icon in pixels", default: 48 },
+        { name: "Title", type: "string?", description: "Title text displayed on the empty page", default: "This tab is Empty" },
+        { name: "Desc", type: "string?", description: "Description text displayed below the title", default: "nil" },
    ]}
 />
 

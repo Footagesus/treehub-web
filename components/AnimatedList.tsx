@@ -1,4 +1,5 @@
 "use client";
+import Spring from "@/app/data/Spring";
 import { useEffect, useRef, useState } from "react";
 
 interface AnimatedListProps {
@@ -39,7 +40,7 @@ export default function AnimatedList({
             {children.map((child, idx) => (
                 <div
                     key={idx}
-                    className={`transform transition-[opacity,transform,--tw-scale-x,--tw-scale-y]  duration-700 ${
+                    className={`transform transition-[opacity,transform,--tw-scale-x,--tw-scale-y]  duration-1200 ${
                         isVisible
                             ? "opacity-100 scale-in"
                             : "opacity-0 scale-out"
@@ -48,8 +49,7 @@ export default function AnimatedList({
                         transitionDelay: isVisible
                             ? `${idx * staggerDelay}ms`
                             : "0ms",
-                        transitionTimingFunction:
-                            "cubic-bezier(0.34, 1.56, 0.64, 1)",
+                        transitionTimingFunction: Spring,
                     }}
                 >
                     {child}

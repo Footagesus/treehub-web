@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./global.css";
 import { Body } from "./body";
+import { GeistSans } from "geist/font/sans";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -21,7 +22,11 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: { children: ReactNode }) {
     return (
-        <html lang="en" className={inter.className} suppressHydrationWarning>
+        <html
+            lang="en"
+            className={GeistSans.className}
+            suppressHydrationWarning
+        >
             <Body>
                 <RootProvider search={{ enabled: false }}>
                     {children}

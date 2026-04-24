@@ -17,6 +17,7 @@
         "popup",
         "notification",
         "tag",
+        "tabsection",
         "---Elements---",
         "sections",
         "button",
@@ -32,6 +33,7 @@
         "space",
         "image",
         "group",
+        "hstackvstack",
         "---Advanced---",
         "configs",
         "icons"

@@ -7,6 +7,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock'
 import TypeTable from '@/components/TypeTable';
 
+![Tag](/windui/banners/Tag.png)
+
 ## Tag Element
 
 Tags are compact badges used to label, categorize, or mark elements. They're useful for status indicators, labels, and badges.
@@ -79,16 +81,6 @@ Tab:Tag({
                 }
             }
         },
-        ':SetDesc': {
-            type: 'function',
-            description: 'Updates the tag\'s description/tooltip.',
-            args: {
-                Description: {
-                    type: 'string',
-                    description: 'New description text.',
-                }
-            }
-        },
     }}
 />
 
@@ -97,7 +89,8 @@ Tab:Tag({
 ### FPS Counter Tag
 
 ```luau
-local FPSTag = Tab:Tag({
+-- your tag
+local FPSTag = Window:Tag({
     Title = "FPS: 0",
     Color = Color3.fromRGB(100, 150, 255),
 })
@@ -132,7 +125,7 @@ end)
 ### Ping Counter Tag
 
 ```luau
-local PingTag = Tab:Tag({
+local PingTag = Window:Tag({
     Title = "Ping: 0ms",
     Color = Color3.fromRGB(100, 200, 255),
 })

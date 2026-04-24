@@ -1,6 +1,6 @@
 {
-    "title": "Tree Hub (wip)",
-    "description": "Tree Hub Documentation",
+    "title": "Branchy (wip)",
+    "description": "Branchy Documentation",
     "root": true,
     "pages": ["---Main---", "index"]
 }

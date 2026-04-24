@@ -19,6 +19,7 @@ type FunctionType = {
     args?: Record<string, ArgType>;
     returns?: string;
     required?: boolean;
+    default?: string;
 };
 
 type TableDataItem = {
@@ -42,6 +43,7 @@ export default function TypeTable({ type, data }: TypeTableProps) {
                 type: item.type,
                 description: item.description,
                 required: false,
+                default: item.default,
             };
         });
     }
@@ -149,7 +151,7 @@ export default function TypeTable({ type, data }: TypeTableProps) {
                                                         </span>
                                                     )}
                                                 </span>
-                                            )
+                                            ),
                                         )}
                                     <span className={DelimColor}>)</span>
                                     {value.returns && (
@@ -207,7 +209,7 @@ export default function TypeTable({ type, data }: TypeTableProps) {
                                             </span>
                                         )}
                                     </span>
-                                )
+                                ),
                             )}
                         <span className={DelimColor}>)</span>
                         {value.returns && (
@@ -258,15 +260,33 @@ export default function TypeTable({ type, data }: TypeTableProps) {
                 }`}
             >
                 <div className="border-t border-black/10 dark:border-black p-2.5 flex flex-col gap-1.5">
+                    <div className="w-full flex flex-row items-center justify-between gap-6 px-2 py-1">
+                        <span className="text-[13px] font-mono whitespace-nowrap">
+                            Name
+                        </span>
+                        {((type &&
+                            Object.values(type).some((v) => v.default)) ||
+                            (data && data.some((v) => v.default))) && (
+                            <span className="text-[13px] font-mono whitespace-nowrap">
+                                Default
+                            </span>
+                        )}
+                    </div>
+
                     {type &&
                         Object.entries(type).map(([key, value]) => (
                             <div
                                 key={key}
-                                className="flex flex-row items-center"
+                                className="flex flex-row items-center justify-between gap-6"
                             >
                                 <span className="text-[13px] font-mono whitespace-nowrap pr-2.5">
                                     {renderFunction(key, value)}
                                 </span>
+                                {value.default && (
+                                    <span className="text-sm opacity-60 font-mono">
+                                        {value.default}
+                                    </span>
+                                )}
                             </div>
                         ))}
                 </div>

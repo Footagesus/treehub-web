@@ -47,9 +47,9 @@ function ColorPreview({ value }: { value: any }) {
     }
 
     return (
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 w-fit!">
             <span
-                className="w-18 h-8 rounded-full justify-center items-center flex dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.12)] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.12)] flex-shrink-0"
+                className="w-17 h-7 rounded-full justify-center items-center flex dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.12)] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.12)] shrink-0"
                 style={style}
             >
                 <span
@@ -100,47 +100,23 @@ export function ThemeSwatch({ theme }: { theme: any }) {
     }
 
     return (
-        <Popover>
-            <PopoverTrigger asChild>
-                <span
-                    style={{ ...boxStyle, backgroundClip: "padding-box" }}
-                    className="
-                        inline-flex items-center justify-center
-                        w-full h-10 rounded-[20px]
-                        cursor-pointer
+        <span
+            className="
+                        relative flex flex-row items-start justify-between
+                        w-full h-auto rounded-[20px]
                         dark:shadow-[inset_0_0_0_0.75px_rgba(255,255,255,0.12)]
                         shadow-[inset_0_0_0_0.75px_rgba(0,0,0,0.12)]
-                        select-none
+                        select-none overflow-hidden
                     "
-                >
-                    <span
-                        className="text-sm font-medium inline-block"
-                        style={textStyle}
-                    >
-                        {label}
-                    </span>
-                </span>
-            </PopoverTrigger>
+        >
+            <div
+                style={{ ...boxStyle, backgroundClip: "padding-box" }}
+                className="w-full! h-full absolute z-0 opacity-10"
+            ></div>
+            <div className="text-sm font-medium z-99 flex flex-col  items-start justify-start h-full">
+                <span className="text-2xl font-semibold p-6 pb-2">{label}</span>
 
-            <PopoverContent className="w-80 p-3 rounded-[20px] dark:border-0 border border-black/10 shadow-none dark:bg-secondary/80 backdrop-blur-2xl bg-neutral-100">
-                <div className="flex flex-col gap-2">
-                    <div className="flex items-center justify-between px-0.5 pb-1">
-                        <span className="text-md font-semibold">{label}</span>
-                        <Dialog>
-                            <DialogTrigger asChild>
-                                <button className="p-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
-                                    <Eye className="w-4 h-4" />
-                                </button>
-                            </DialogTrigger>
-                            <DialogContent className="max-w-3xl p-6 border-0 bg-transparent shadow-none">
-                                <img
-                                    src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/windui/themes/${label}.png`}
-                                    alt={label}
-                                    className="w-full h-auto rounded-lg"
-                                />
-                            </DialogContent>
-                        </Dialog>
-                    </div>
+                <div className="grid grid-cols-2 gap-2 p-4">
                     {Object.entries(theme)
                         .filter(([key, value]) => {
                             if (key === "Name") return false;
@@ -150,15 +126,24 @@ export function ThemeSwatch({ theme }: { theme: any }) {
                             return false;
                         })
                         .map(([key, value]) => (
-                            <div key={key} className="flex items-center gap-3">
+                            <div
+                                key={key}
+                                className="flex items-center gap-3 justify-start"
+                            >
                                 <ColorPreview value={value} />
-                                <span className="text-sm text-muted-foreground">
+                                <span className="text-sm text-muted-foreground text-left">
                                     {key}
                                 </span>
                             </div>
                         ))}
                 </div>
-            </PopoverContent>
-        </Popover>
+            </div>
+
+            <img
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/windui/themes/${label}.png`}
+                alt={label}
+                className="w-96 h-auto p-2 my-0!"
+            />
+        </span>
     );
 }

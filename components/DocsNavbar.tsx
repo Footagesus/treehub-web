@@ -23,6 +23,12 @@ export default function DocsNavbar() {
 
     const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
+    const NavTitle = pathname.startsWith("/blog")
+        ? "Blog"
+        : pathname.startsWith("/docs")
+          ? "Documentation"
+          : "Documentation";
+
     const projects = useMemo(() => {
         const result: Array<{
             key: string;
@@ -165,9 +171,9 @@ export default function DocsNavbar() {
                         href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/`}
                         className="flex flex-row items-center gap-1 opacity-90 hover:opacity-100"
                     >
-                        <Logo className="h-4 w-[18.668px]" />
-                        <span className="font-semibold text-[20px]">
-                            Documentation
+                        <Logo className="h-5! text-brand" />
+                        <span className="font-semibold text-[22px]">
+                            {NavTitle}
                         </span>
                     </Link>
                 </div>
@@ -255,10 +261,11 @@ export default function DocsNavbar() {
                             open={openPopover}
                             onOpenChange={setOpenPopover}
                         >
-                            <PopoverTrigger className="w-full">
+                            <PopoverTrigger className="w-full! hidden">
                                 <Button
                                     variant="secondary"
-                                    className="justify-between w-full rounded-2xl px-6 py-2.5 h-auto"
+                                    className="justify-between rounded-xl! px-6 py-2 h-auto w-full!"
+                                    classNameTB="w-full!"
                                 >
                                     <div className="truncate flex flex-col items-start gap-0">
                                         <span>{current?.title}</span>
