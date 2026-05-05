@@ -235,6 +235,22 @@ local Window = WindUI:CreateWindow({
                 <>
                     <h4>Configuration for the open/minimize button on mobile</h4>
                     <p>Customize the button that appears when the window is closed on mobile devices.</p>
+                    <DynamicCodeBlock 
+                        lang="luau" 
+                        code={`OpenButton = {
+    Title = "Open Example UI",
+    Icon = "monitor",
+    CornerRadius = UDim.new(0,16),
+    StrokeThickness = 2,
+    Color = ColorSequence.new( -- only gradient 
+        Color3.fromHex("FF0F7B"), 
+        Color3.fromHex("F89B29")
+    ),
+    OnlyMobile = false,
+    Enabled = true,
+    Draggable = true,
+}`}
+                    />
                 </>
             ),
         },
@@ -289,7 +305,7 @@ local Window = WindUI:CreateWindow({
 
 <TypeTable 
     type={{
-        ':CreateTab': {
+        ':Tab': {
             type: 'function',
             description: (
                 <>
@@ -298,12 +314,12 @@ local Window = WindUI:CreateWindow({
                     <p>Example:</p>
                     <DynamicCodeBlock
                         lang="luau"
-                        code={`local TabGeneral = Window:CreateTab({
+                        code={`local TabGeneral = Window:Tab({
     Title = "General",
     Icon = "settings",
 })
 
-local TabAdvanced = Window:CreateTab({
+local TabAdvanced = Window:Tab({
     Title = "Advanced",
     Icon = "sliders",
 })`}
