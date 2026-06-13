@@ -39,7 +39,7 @@ export default function HomePage() {
     }, []);
     1;
     return (
-        <main className="flex flex-1 flex-col justify-left items-center p-0 overflow-x-clip bg-black">
+        <main className="flex flex-1 flex-col justify-left items-center p-0 overflow-x-clip bg-background">
             {/* temp hidden */}
             <section
                 id="landing"
