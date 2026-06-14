@@ -34,6 +34,7 @@ local Button = Tab:Button({
     Desc = "Button description", -- optional
     Icon = "mouse-pointer-click", -- lucide icon or "rbxassetid://". optional
     IconAlign = "Right", -- "Left" or "Right". optional
+    IconColor = Color3,fromHex("#30ff6a"), -- custom icon color. optional
     Color = Color3.fromRGB(100, 100, 255), -- custom color. optional
     Locked = false, -- disable button. optional
     LockedTitle = "Locked", -- text shown when locked. optional
@@ -55,6 +56,7 @@ local Button = Tab:Button({
         { name: "Desc", type: "string?", description: "Button description shown below title", default: "nil" },
         { name: "Icon", type: "string?", description: "Icon identifier (lucide icon or rbxassetid://)", default: "nil" },
         { name: "IconAlign", type: "string?", description: "Icon position: 'Left' or 'Right'", default: "Right" },
+        { name: "IconColor", type: "Color3?", description: "Custom button icon color", default: "nil" },
         { name: "Color", type: "Color3?", description: "Custom button color", default: "nil" },
         { name: "Locked", type: "boolean?", description: "Disable button interaction", default: "false" },
         { name: "LockedTitle", type: "string?", description: "Text shown when button is locked", default: "nil" },
