@@ -1,3 +1,5 @@
+"use client";
+
 import Spring from "@/app/data/Spring";
 import { useRef, useState } from "react";
 
