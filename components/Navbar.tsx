@@ -8,13 +8,19 @@ import { ChevronRight, ExternalLink } from "lucide-react";
 import BrandName from "@/app/data/BrandName";
 import Spring from "@/app/data/Spring";
 import TopbarButton from "./TopbarButton";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 interface NavbarProps {
     links: any[];
 }
 
 export default function Navbar({ links }: NavbarProps) {
+    const pathname = usePathname();
+
+    if (pathname === "/about" || pathname.startsWith("/about/")) {
+        return null;
+    }
+
     const [isLoaded, setIsLoaded] = useState(false);
     const [isDark, setIsDark] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
