@@ -30,12 +30,19 @@ export default function WindUIPage() {
                         <Button
                             className="bg-brand-2! rounded-full hover:brightness-120! text-white"
                             variant="default"
+                            onClick={() => {
+                                window.location.href = `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/docs`;
+                            }}
                         >
                             Documentation
                         </Button>
                         <Button
                             className="rounded-full hover:brightness-120!"
                             variant="secondary"
+                            onClick={() => {
+                                window.location.href =
+                                    "https://github.com/Footagesus/WindUI";
+                            }}
                         >
                             Github
                         </Button>
