@@ -11,6 +11,7 @@ export interface ButtonProps
         VariantProps<typeof buttonVariants> {
     asChild?: boolean;
     classNameTB?: string;
+    onClick?: () => void;
 }
 
 const buttonVariants = cva(
@@ -50,6 +51,7 @@ function Button({
     variant,
     size,
     asChild = false,
+    onClick,
     ...props
 }: ButtonProps) {
     const Comp = asChild ? Slot : "button";
@@ -59,6 +61,7 @@ function Button({
             isScrolled={true}
             scaleOnHold={1.05}
             brightnessOnHold={140}
+            onClick={onClick}
             className={cn(classNameTB, "")}
         >
             <Comp

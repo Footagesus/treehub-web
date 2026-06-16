@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import example from "@/lib/windui/example";
