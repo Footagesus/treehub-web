@@ -8,7 +8,7 @@ export default function WindUIPage() {
             <section className="flex md:flex-row flex-col items-center h-auto justify-center max-md:gap-6">
                 <div className="w-full md:flex-1">
                     <img
-                        src="/windui/main-banner-2.jpg"
+                        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/windui/main-banner-2.jpg`}
                         alt="Preview"
                         className="w-full rounded-2xl"
                     />
