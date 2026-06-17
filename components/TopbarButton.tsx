@@ -11,6 +11,7 @@ export default function TopbarButton({
     scaleOnHold = 1.15,
     brightnessOnHold = 220,
     stretchOnDrag = true,
+    ref,
 }: {
     children: React.ReactNode;
     onClick?: () => void;
@@ -19,6 +20,7 @@ export default function TopbarButton({
     scaleOnHold?: number;
     brightnessOnHold?: number;
     stretchOnDrag?: boolean;
+    ref?: any;
 }) {
     const [IsHolding, SetIsHolding] = useState(false);
     const [Scale, SetScale] = useState({ X: 1, Y: 1 });
@@ -155,7 +157,7 @@ export default function TopbarButton({
 
                 transition: `
                     opacity 1.2s ${Spring},
-                    transform ${IsHolding ? ".7s" : IsReleasing ? "0.7s" : "0.4s"} ${Spring},
+                    transform ${IsHolding ? ".5s" : IsReleasing ? "0.7s" : "0.4s"} ${Spring},
                     filter 0.3s ease
                 `,
             }}
@@ -164,6 +166,7 @@ export default function TopbarButton({
             onPointerUp={OnUp}
             onPointerCancel={OnUp}
             onClick={onClick}
+            ref={ref}
         >
             {children}
         </div>

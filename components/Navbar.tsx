@@ -17,7 +17,11 @@ interface NavbarProps {
 export default function Navbar({ links }: NavbarProps) {
     const pathname = usePathname();
 
-    if (pathname === "/about" || pathname.startsWith("/about/")) {
+    if (
+        pathname === "/about" ||
+        pathname.startsWith("/about/") ||
+        pathname.startsWith("/playground/")
+    ) {
         return null;
     }
 

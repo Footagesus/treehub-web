@@ -1,14 +1,21 @@
 import { RootProvider } from "fumadocs-ui/provider";
 import { Inter } from "next/font/google";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./global.css";
 import { Body } from "./body";
 import { GeistSans } from "geist/font/sans";
+import { SquircleNoScript } from "@squircle-js/react";
 
 const inter = Inter({
     subsets: ["latin"],
 });
+
+export const viewport: Viewport = {
+    width: "device-width",
+    initialScale: 1,
+    viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://footagesus.github.io/treehub-web"),
@@ -28,6 +35,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             suppressHydrationWarning
         >
             <Body>
+                <SquircleNoScript />
                 <RootProvider search={{ enabled: false }}>
                     {children}
                 </RootProvider>
