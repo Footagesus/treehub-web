@@ -19,6 +19,7 @@ export default function Navbar({ links }: NavbarProps) {
 
     if (
         pathname === "/about" ||
+        pathname === "/playground" ||
         pathname.startsWith("/about/") ||
         pathname.startsWith("/playground/")
     ) {

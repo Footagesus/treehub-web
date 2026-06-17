@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useTheme } from "../playground/windui/context/ThemeContext";
 import { themes, ThemeName } from "../playground/windui/themes";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Check } from "lucide-react";
 
 export function ThemeSwitcher() {
     const { themeName, setTheme } = useTheme();
@@ -37,18 +37,17 @@ export function ThemeSwitcher() {
                 />
             </button>
 
-            {/* Список */}
             {open && (
-                <div className="absolute top-full left-0 mt-1.5 !w-52 rounded-2xl bg-[#1a1a1a] overflow-hidden">
-                    <div className="max-h-72 overflow-y-auto p-1.5">
+                <div className="absolute top-full left-0 mt-1.5 !w-52 rounded-3xl bg-[#1a1a1a] overflow-hidden">
+                    <div className="max-h-200 overflow-y-auto p-1.5">
                         {(Object.keys(themes) as ThemeName[]).map((name) => (
                             <button
                                 key={name}
                                 onClick={() => {
                                     setTheme(name);
-                                    setOpen(false);
+                                    // setOpen(false);
                                 }}
-                                className={`w-full flex items-center gap-2.5 px-3 py-2 text-xs transition-all hover:bg-white/5 rounded-[10px] ${
+                                className={`w-full flex items-center gap-2.5 px-3 h-9 text-xs transition-all hover:bg-white/5 rounded-full ${
                                     themeName === name
                                         ? "text-white bg-white/10"
                                         : "text-white/50"
@@ -60,8 +59,8 @@ export function ThemeSwitcher() {
                                 />
                                 {themes[name].name}
                                 {themeName === name && (
-                                    <span className="ml-auto text-white/30">
-                                        ✓
+                                    <span className="ml-auto text-white opacity-70">
+                                        <Check className="size-3" />
                                     </span>
                                 )}
                             </button>
