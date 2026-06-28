@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
     Popover,
     PopoverContent,
@@ -17,6 +17,7 @@ export default function DocsSidebar() {
     const pathname = usePathname();
     const router = useRouter();
     const [openPopover, setOpenPopover] = useState(false);
+
     const tree = source.pageTree;
 
     const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -100,7 +101,7 @@ export default function DocsSidebar() {
 
     return (
         <aside className="hidden md:flex md:pt-14 flex-col w-60 bg-neutral-100 dark:bg-neutral-900 p-2 pt-0 pr-0 gap-4 fixed h-dvh">
-            <Popover open={openPopover} onOpenChange={setOpenPopover}>
+            {/*<Popover open={openPopover} onOpenChange={setOpenPopover}>
                 <PopoverTrigger className="w-full hidden">
                     <Button
                         variant="secondary"
@@ -155,7 +156,7 @@ export default function DocsSidebar() {
                         ))}
                     </div>
                 </PopoverContent>
-            </Popover>
+            </Popover>*/}
 
             {/* pages */}
             <div className="flex flex-col gap-1.5 px-3 overflow-y-auto flex-1 min-h-0 pb-2 font-normal!">
