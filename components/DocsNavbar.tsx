@@ -121,7 +121,7 @@ export default function DocsNavbar() {
                 return (
                     <div
                         key={`separator-${idx}`}
-                        className={`text-lg text-black/40 dark:text-white/40 mt-4 mb-2 first:mt-0 opacity-0 font-semibold ${
+                        className={`text-lg text-black/40 dark:text-white/40 mt-4 mb-2 first:mt-0 opacity-0 font-medium ${
                             isOpen ? "show-item" : ""
                         }`}
                         style={{
@@ -141,12 +141,12 @@ export default function DocsNavbar() {
                         key={child.url}
                         href={child.url}
                         onClick={() => setIsOpen(false)}
-                        className={`dark:text-white text-black hover:text-black/90 dark:hover:text-white/90 text-3xl font-semibold opacity-0 ${
+                        className={`dark:text-white text-black hover:text-black/90 dark:hover:text-white/90 text-2xl font-semibold opacity-0 ${
                             isOpen ? "show-item" : ""
                         } ${
                             pathname === child.url
                                 ? "text-black dark:text-white font-medium"
-                                : "text-black/50 dark:text-white/50 font-normal hover:text-black/80 dark:hover:text-white/80"
+                                : "text-black/67 dark:text-white/60 font-normal hover:text-black/80 dark:hover:text-white/80"
                         }`}
                         style={{
                             animationDelay: isOpen
@@ -305,7 +305,7 @@ export default function DocsNavbar() {
                         </Popover>
                     </div>
 
-                    <div className="flex-1 overflow-y-auto px-5 flex flex-col justify-start gap-2 py-4">
+                    <div className="flex-1 overflow-y-auto px-12 flex flex-col justify-start gap-2 py-4">
                         {renderMobileItems()}
                     </div>
                 </div>

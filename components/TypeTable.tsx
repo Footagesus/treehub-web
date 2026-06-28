@@ -238,7 +238,7 @@ export default function TypeTable({ type, data }: TypeTableProps) {
     };
 
     return (
-        <div className="dark:bg-white/5 bg-white border border-black/10 dark:border-0 flex flex-col rounded-[20px] overflow-hidden">
+        <div className="dark:bg-white/5 bg-white border border-black/10 dark:border-0 flex flex-col rounded-[24px] overflow-hidden">
             <button
                 onClick={() => setIsExpanded(!isExpanded)}
                 className="flex flex-row items-center gap-2 px-4 h-10 text-left hover:opacity-80 transition-opacity"
