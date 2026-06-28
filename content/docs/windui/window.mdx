@@ -5,6 +5,8 @@ description: Configure and create windows in WindUI
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock'
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { TriangleAlert } from "lucide-react";
 import TypeTable from '@/components/TypeTable';
 
 ![Window](/windui/banners/Window.png)
@@ -818,3 +820,17 @@ end)`}
         },
     }}
 />
+
+
+<br/>
+
+<Alert className="bg-yellow-300/30 dark:bg-yellow-950/80 text-yellow-700 dark:text-yellow-200/90 border-0 rounded-[20px]">
+
+    <TriangleAlert />
+    <AlertTitle>WARNING</AlertTitle>
+    <AlertDescription className="[&_p]:m-0">
+        `Background` thing works only for RAW URL LINK or rbxassetid://IMAGE ID !!!!!!
+        `Background` thing will not work for a DECAL ID !!!!!!
+    </AlertDescription>
+</Alert>
+
