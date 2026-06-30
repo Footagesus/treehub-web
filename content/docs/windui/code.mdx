@@ -29,7 +29,23 @@ Tab:Code({
 ```luau
 Tab:Code({
     Title = "Example Code",
-    Code = "local x = 10\\nprint(x)",
+    Code = [[local x = 10\\nprint(x)]],
+    CodeSize = 18, 
+    CanCopied = true,
+    Height = UDim.new(1,0), -- full height of page 
+    CodeTheme = { -- this is catpuccini mocha theme
+        numbers = Color3.fromHex("#FAB387"),
+        boolean = Color3.fromHex("#FAB387"),
+        operator = Color3.fromHex("#94E2D5"),
+        lua = Color3.fromHex("#CBA6F7"),
+        rbx = Color3.fromHex("#F38BA8"), -- def
+        str = Color3.fromHex("#A6E3A1"),
+        comment = Color3.fromHex("#9399B2"),
+        null = Color3.fromHex("#F38BA8"), -- nil
+        call = Color3.fromHex("#89B4FA"),
+        self_call = Color3.fromHex("#89B4FA"),
+        local_property = Color3.fromHex("#CBA6F7"),
+    },
     OnCopy = function()
         print("Code copied to clipboard")
     end
@@ -44,6 +60,9 @@ Tab:Code({
     data={[
         { name: "Title", type: "string?", description: "Code block title", default: "nil" },
         { name: "Code", type: "string", description: "Code content to display", default: "" },
+        { name: "CodeSize", type: "number", description: "Size of code", default: "18" },
+        { name: "CodeTheme", type: "table", description: "Code theme", default: "nil" },
+        { name: "Height", type: "UDim", description: "Height of code frame", default: "nil" },
         { name: "OnCopy", type: "function?", description: "Callback when code is copied", default: "nil" },
     ]}
 />
