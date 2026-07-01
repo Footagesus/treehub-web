@@ -34,6 +34,7 @@
         "image",
         "group",
         "hstackvstack",
+        "progressbar",
         "---Advanced---",
         "configs",
         "icons"
