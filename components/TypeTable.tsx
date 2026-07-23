@@ -259,7 +259,7 @@ export default function TypeTable({ type, data }: TypeTableProps) {
                     isExpanded ? "max-h-500" : "max-h-0"
                 }`}
             >
-                <div className="border-t border-black/10 dark:border-black p-2.5 flex flex-col gap-1.5">
+                <div className="border-t border-black/10 dark:border-black p-2.5 flex flex-col gap-1.5 overflow-x-scroll">
                     <div className="w-full flex flex-row items-center justify-between gap-6 px-2 py-1">
                         <span className="text-[13px] font-mono whitespace-nowrap">
                             Name
