@@ -795,27 +795,34 @@ end)`}
                 </>
             ),
             args: {
-                Config: {
-                    type: 'table',
-                    description: (
-                        <>
-                            <h4>Button configuration:</h4>
-                            <DynamicCodeBlock
-                                lang="luau"
-                                code={`{
-    Name = "Button Name",
-    Icon = "icon-name", -- lucide icon name
-    Callback = function() 
-        -- Button click handler
-    end,
-    LayoutOrder = 100, -- optional, controls button order
-    IconThemed = false, -- optional
-    Color = Color3.fromHex("#FFFFFF") -- optional
-}`}
-                            />
-                        </>
-                    ),
-                }
+                Name: {
+                    type: 'string',
+                    description: 'Button text label.',
+                },
+                Icon: {
+                    type: 'string',
+                    description: 'Lucide icon name.',
+                },
+                Callback: {
+                    type: 'function',
+                    description: 'Function called when the button is clicked.',
+                },
+                LayoutOrder: {
+                    type: 'number?',
+                    description: 'Optional. Controls button order. Defaults to 999.',
+                },
+                IconThemed: {
+                    type: 'boolean?',
+                    description: 'Optional. Whether to use themed icon colors. Defaults to nil.',
+                },
+                Color: {
+                    type: 'Color3?',
+                    description: 'Optional. Button color. Defaults to Color3.fromHex("#ff3030").',
+                },
+                IconSize: {
+                    type: 'number?',
+                    description: 'Optional. Icon size. Defaults to 16.',
+                },
             }
         },
     }}
