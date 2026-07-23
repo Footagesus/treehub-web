@@ -1,0 +1,58 @@
+---
+title: Fork
+description: Make fork and add new things to windui
+---
+
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+
+## Forking 
+
+<Steps>
+<Step>
+### Click `Fork` in [WindUI Repository](https://github.com/Footagesus/WindUI)
+Forking repository to own account
+![Fork Preview](/windui/banners/fork.png)
+![Fork-2 Preview](/windui/banners/fork2.png)
+</Step>
+<Step>
+### Clone forked repository to local machine 
+Clone it in terminal
+```bash
+git clone https://github.com/[YOUR_GITHUB_USERNAME]/WindUI.git
+cd WindUI
+```
+This command will create a copy of the WindUI project in your working directory, allowing you to modify and customize it as needed.
+</Step>
+<Step>
+### Install required dependencies
+You need cargo to install [darklua](https://darklua.com/docs/installation/)
+
+```bash
+cargo install darklua
+```
+</Step>
+<Step>
+### Build WindUI
+After your changes in the local repository in `./WindUI`, you can build the changes and test them
+
+```bash
+npm run build
+```
+
+this will update the `./WindUI/dist/main.lua` file (build file)
+
+</Step>
+</Steps>
+
+
+
+## Contributing 
+Thank you for your interest in WindUI! If you want to help, create a pull request with improvements, fixes, or new components. Describe your changes in the comments, make sure the code follows the project style, and that tests pass.
+
+Welcome contributions:
+
+- new components and utilities
+- documentation improvements
+- bug fixes
+
+Before submitting a PR, ensure your code builds successfully and there are no conflicts with the main branch.
