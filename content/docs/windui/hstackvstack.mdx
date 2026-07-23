@@ -14,15 +14,20 @@ import Link from "next/link";
 
 HStack and VStack are layout containers that allow you to organize elements horizontally or vertically, respectively.
 
+
+
 ### HStack
+Horizontal Stack of elements
 ```luau
-local Tab:HStack()
+local HStack = Tab:HStack()
 ```
 
 ### VStack
+Vertical Stack of elements
 ```luau
-local Tab:VStack()
+local VStack = Tab:VStack()
 ```
+
 
 
 ## HStack & VStack Parameters
@@ -36,3 +41,23 @@ local Tab:VStack()
         ), default: "nil" },
     ]}
 />
+
+
+## Usage Examples
+
+### Combination of HStack and VStack (like on thumbnail)
+
+```luau
+local YourHStack = YourTab:HStack()
+
+local LeftVStack = YourHStack:VStack()
+local RightVStack = YourHStack:VStack()
+
+
+-- and creating some elements
+
+LeftVStack:Button({...})
+LeftVStack:Toggle({...})
+
+RightVStack:Button({...})
+```
