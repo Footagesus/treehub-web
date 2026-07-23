@@ -126,7 +126,7 @@ export default function DocsNavbar() {
                         }`}
                         style={{
                             animationDelay: isOpen
-                                ? `${(itemIndex++ + 1) * 40}ms`
+                                ? `${(itemIndex++ + 1) * 22}ms`
                                 : "0ms",
                         }}
                     >
@@ -150,7 +150,7 @@ export default function DocsNavbar() {
                         }`}
                         style={{
                             animationDelay: isOpen
-                                ? `${(itemIndex++ + 1) * 40}ms`
+                                ? `${(itemIndex++ + 1) * 22}ms`
                                 : "0ms",
                         }}
                     >
@@ -247,7 +247,7 @@ export default function DocsNavbar() {
 
             <div
                 className={`md:hidden fixed top-14 left-0 w-full dark:bg-popover bg-neutral-100 flex flex-col z-40 overflow-hidden transition-all duration-200 ease-out ${
-                    isOpen ? "h-[calc(100vh-3.5rem)]" : "h-0"
+                    isOpen ? "h-[calc(100vh-56px)]" : "h-0"
                 }`}
             >
                 <div className="flex flex-col h-full">
@@ -305,7 +305,7 @@ export default function DocsNavbar() {
                         </Popover>
                     </div>
 
-                    <div className="flex-1 overflow-y-auto px-12 flex flex-col justify-start gap-2 py-4">
+                    <div className="flex-1 overflow-y-auto p-12 flex flex-col justify-start gap-2 pt-4 ">
                         {renderMobileItems()}
                     </div>
                 </div>
